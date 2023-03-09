@@ -1,3 +1,11 @@
+https://trello.com/b/oI7VAZ67/youtube-project
+
+Yasser Saadi
+
+Wilton Camilo
+
+Ryan Lundy
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
