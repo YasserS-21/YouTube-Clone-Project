@@ -1,26 +1,24 @@
 import { useState, useEffect } from "react";
 import { getVideos } from "../api/fetch";
-
+import VideoListing from "./VideoListing";
 const key = process.env.REACT_APP_API_KEY;
 
 
 export default function VideosIndex () {
-    const [search, setSearch] = useState("dog")
+    const [search, setSearch] = useState("")
     const [videos, setVideos] = useState([])
     function searchVideos(e) {
         e.preventDefault()
-        console.log(e.target.value)
-        setSearch(e.target.value)
-        console.log(search)
+        setSearch(e.target[0].value)
         console.log(videos)
     }
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=music&type=video&key=${key}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${ search ? search : ""}&type=video&key=${key}`)
         .then((response) => response.json())
         .then((response)=>{
             setVideos(response.items)
         })
-    },[]);
+    },[search]);
   
     return (
         <>
@@ -30,8 +28,13 @@ export default function VideosIndex () {
         <button>Search</button>
         </form>
         </div>
+        
         <div className="Videos">
-            {/* map */}
+            <ul>
+            {videos.map((video) => {
+            return <VideoListing video={video}/>
+            })}
+            </ul>
         </div>
         </>
     )
