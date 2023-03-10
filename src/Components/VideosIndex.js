@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getVideos } from "../api/fetch";
 
 const key = process.env.REACT_APP_API_KEY;
 
