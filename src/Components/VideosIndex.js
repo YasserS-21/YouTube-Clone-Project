@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getVideos } from "../api/fetch";
+import YouTube from "react-youtube";
 import VideoListing from "./VideoListing";
 const key = process.env.REACT_APP_API_KEY;
 
@@ -13,7 +14,7 @@ export default function VideosIndex () {
         console.log(videos)
     }
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${ search ? search : ""}&type=video&key=${key}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&type=video&key=${key}`)
         .then((response) => response.json())
         .then((response)=>{
             setVideos(response.items)
@@ -31,9 +32,9 @@ export default function VideosIndex () {
         
         <div className="Videos">
             <ul>
-            {videos.map((video) => {
+            {search? videos.map((video) => {
             return <VideoListing video={video}/>
-            })}
+            }) : <p>no videos yet fam</p>}
             </ul>
         </div>
         </>
