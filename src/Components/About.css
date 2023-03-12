@@ -34,6 +34,17 @@ html {
     font-size: 1.6em;
 }
 
+.about-section h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.4px #333;
+    text-stroke: .75px #333;
+    font-weight: 900;
+}
+
 .container {
     padding: 0 16px;
 }
@@ -56,7 +67,7 @@ html {
     display: inline-block;
     padding: 8px;
     color: white;
-    background-color: #000;
+    background-color: rgb(30, 170, 241);
     text-align: center;
     cursor: pointer;
     width: 100%;
