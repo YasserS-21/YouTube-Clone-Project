@@ -27,9 +27,17 @@ export default function VideosIndex() {
         const handleErrors = (response) => {
             if (!response.ok) {
                 if (response.status === 400) {
-                    response.text().then((text) => setError(text));
-                    // navigate("/error")
-                    setModal(true);
+                    setError({
+                        code: response.status,
+                        message: "The server was unable to process the request due to invalid information sent by the client. Please modify your request and try again"
+                    })
+                    setModal(!modal)
+                } else {
+                    setError({
+                        code: "Error",
+                        message: "An error occurred while fetching the videos. Please try again later."
+                    })
+                    setModal(!modal)
                 }
             }
             return response;
@@ -38,30 +46,10 @@ export default function VideosIndex() {
         fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${search}&key=${key}`)
 
             .then(handleErrors)
-
-            .then((response) => {
-                if (response.status === 400) {
-                    setError({
-                        code: response.status,
-                        message: "The server was unable to process the request due to invalid information sent by the client. Please modify your request and try again"
-                    })
-                    setModal(!modal)
-                } else {
-                    return response.json()
-                }
-            })
+            .then((response) => {return response.json()})
             .then((response) => {
                 setVideos(response.items)
-                setError(false);
-            })
-            .catch((error) => {
-                console.log(error)
-                setError({
-                    code: "Error",
-                    message: "An error occurred while fetching the videos. Please try again later."
-                })
-                // navigate("/error")
-                setModal(!modal)
+                setError(null);
             })
     }, [search]);
 
