@@ -8,8 +8,6 @@ export default function Filters({setMaxResults, setSearchBy, setSafeSearch, safe
     };
   
     const handleSearchByChange = (event) => {
-        // const searchRadio = document.querySelectorAll(`radio[name="search-by"]`)
-        // console.log(searchRadio)
       setSearchBy(event.target.value);
     };
   

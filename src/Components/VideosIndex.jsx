@@ -21,7 +21,7 @@ export default function VideosIndex() {
     const [searchBy, setSearchBy] = useState('relevance');
     const [safeSearch, setSafeSearch] = useState('moderate');
     const [showFilters, toggleVideoFilters] = useState(false)
-    // const navigate = useNavigate();
+
 
 
     function searchVideos(e) {
