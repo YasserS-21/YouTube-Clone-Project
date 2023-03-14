@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { getVideos } from "../api/fetch";
 import YouTube from "react-youtube";
+
 import VideoListing from "./VideoListing";
 
 import Modal from "./Modal";
 import { useNavigate } from "react-router-dom";
+import Filters from "./Filters";
 
 const key = process.env.REACT_APP_API_KEY;
 
@@ -15,6 +17,10 @@ export default function VideosIndex() {
     const [videos, setVideos] = useState([])
     const [errorMessage, setError] = useState(null)
     const [modal, setModal] = useState(false);
+    const [maxResults, setMaxResults] = useState(5);
+    const [searchBy, setSearchBy] = useState('relevance');
+    const [safeSearch, setSafeSearch] = useState('moderate');
+    const [showFilters, toggleVideoFilters] = useState(false)
     // const navigate = useNavigate();
 
 
@@ -22,9 +28,13 @@ export default function VideosIndex() {
         e.preventDefault()
         setSearch(e.target[0].value)
         console.log(videos)
+        console.log(maxResults,searchBy,safeSearch)
     }
 
-
+    function toggleFilters(e) {
+        e.preventDefault()
+        toggleVideoFilters(!showFilters)
+    }
 
     useEffect(() => {
         const handleErrors = (response) => {
@@ -47,18 +57,20 @@ export default function VideosIndex() {
             return response;
         };
 
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${search}&key=${key}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=AIzaSyCh8Jmn2KuO8723cGPUB3trKgQ1fuoM994&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
 
             .then(handleErrors)
             .then((response) => {return response.json()})
             .then((response) => {
                 setVideos(response.items)
             })
-    }, [search]);
+    }, [search, maxResults, safeSearch, searchBy]);
 
     return (
         <>
             <div className="searchBar">
+                <button onClick={toggleFilters}>Filters!</button> <br/>
+                {showFilters && <Filters setMaxResults={setMaxResults} setSafeSearch={setSafeSearch} setSearchBy={setSearchBy} searchBy={searchBy} maxResults={maxResults} safeSearch={safeSearch}/>}
                 <form className="searchForm" onSubmit={searchVideos}>
                     <input type="text"></input>
                     <button>Search</button>
