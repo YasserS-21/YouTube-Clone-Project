@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getVideos } from "../api/fetch";
+
 import YouTube from "react-youtube";
 
 import VideoListing from "./VideoListing";
@@ -57,7 +57,7 @@ export default function VideosIndex() {
             return response;
         };
 
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=AIzaSyCh8Jmn2KuO8723cGPUB3trKgQ1fuoM994&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=${key}&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
 
             .then(handleErrors)
             .then((response) => {return response.json()})
