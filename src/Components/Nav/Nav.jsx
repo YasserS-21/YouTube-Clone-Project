@@ -1,20 +1,20 @@
 import React from "react";
 import { useEffect,useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import "./Nav.css";
 
 export default function Nav() {
-  const [headerColor, setHeaderColor] = useState({backgroundColor: "white"})   
+  const [headerColor, setHeaderColor] = useState({backgroundColor:null}) 
+  const path= useLocation()
+  console.log(path)
 useEffect(()=> {
-  //if (window.location.href.indexOf("/") > -1) {
-   setHeaderColor({backgroundColor: "red"})
-  //}
-   if(window.location.href.indexOf("/about") > -1){
+  console.log(path)
+   if(path.pathname === "/about"){
     setHeaderColor({backgroundColor: "white"})
   } else {
     setHeaderColor({headerColor: "red"})
   }
-},[window.location.pathname])
+},[path.pathname])
   return (
     <header style={headerColor}>
       <article>

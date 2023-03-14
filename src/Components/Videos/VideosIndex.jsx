@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
-
-import YouTube from "react-youtube";
-
 import VideoListing from "./VideoListing";
-
 import Modal from "../Modal/Modal";
-import { useNavigate } from "react-router-dom";
 import Filters from "./Filters";
 
 const key = process.env.REACT_APP_API_KEY;
