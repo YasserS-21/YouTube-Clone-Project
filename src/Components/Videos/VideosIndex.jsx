@@ -56,7 +56,7 @@ export default function VideosIndex() {
             return response;
         };
 
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=AIzaSyAWaHPbmCcNf_IB_xiu8EC9fEVUnMqtUJA&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=${key}&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
 
             .then(handleErrors)
             .then((response) => {return response.json()})
