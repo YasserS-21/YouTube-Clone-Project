@@ -6,15 +6,13 @@ import "./Nav.css";
 export default function Nav() {
   const [headerColor, setHeaderColor] = useState({backgroundColor: "white"})   
 useEffect(()=> {
-  //if (window.location.href.indexOf("/") > -1) {
    setHeaderColor({backgroundColor: "red"})
-  //}
    if(window.location.href.indexOf("/about") > -1){
     setHeaderColor({backgroundColor: "white"})
   } else {
     setHeaderColor({headerColor: "red"})
   }
-},[window.location.pathname])
+},[headerColor])
   return (
     <header style={headerColor}>
       <article>
@@ -34,9 +32,4 @@ useEffect(()=> {
       </nav>
     </header>
   );
-  // if (window.location.href.indexOf("about") > -1) {
-  //   document.body.style.backgroundColor = 'white';
-  // } else {
-  //   document.body.style.backgroundColor = 'red';
-  // }
 }

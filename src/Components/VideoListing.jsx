@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 export default function VideoListing ({video}) {
-    console.log(video)
+    
     return(
         <>
         <li>

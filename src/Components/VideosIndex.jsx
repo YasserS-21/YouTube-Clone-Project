@@ -16,6 +16,7 @@ export default function VideosIndex() {
     const [safeSearch, setSafeSearch] = useState('moderate');
     const [showFilters, toggleVideoFilters] = useState(false)
 
+
     function searchVideos(e) {
         e.preventDefault()
         setSearch(e.target[0].value)
