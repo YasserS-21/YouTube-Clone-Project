@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
-
-import YouTube from "react-youtube";
-
 import VideoListing from "./VideoListing";
-
 import Modal from "./Modal";
-import { useNavigate } from "react-router-dom";
 import Filters from "./Filters";
-
 const key = process.env.REACT_APP_API_KEY;
 
 
@@ -21,8 +15,6 @@ export default function VideosIndex() {
     const [searchBy, setSearchBy] = useState('relevance');
     const [safeSearch, setSafeSearch] = useState('moderate');
     const [showFilters, toggleVideoFilters] = useState(false)
-    // const navigate = useNavigate();
-
 
     function searchVideos(e) {
         e.preventDefault()

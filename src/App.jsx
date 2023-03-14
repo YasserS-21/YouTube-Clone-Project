@@ -1,9 +1,9 @@
-import Nav from './Components/Nav';
+import Nav from './Components/Nav/Nav';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from './Components/About';
-import VideosIndex from './Components/VideosIndex';
-import VideoPlayer from './Components/VideoPlayer';
-import Modal from './Components/Modal';
+import About from './Components/About/About';
+import VideosIndex from './Components/Videos/VideosIndex';
+import VideoPlayer from './Components/Videos/VideoPlayer';
+import Modal from './Components/Modal/Modal';
 import './App.css';
 
 function App() {
