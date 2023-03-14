@@ -27,14 +27,15 @@ export default function VideosIndex() {
         const handleErrors = (response) => {
             if (!response.ok) {
                 if (response.status === 400) {
+                    console.log(response)
                     setError({
-                        code: response.status,
+                        code: `Error ${response.status}`,
                         message: "The server was unable to process the request due to invalid information sent by the client. Please modify your request and try again"
                     })
                     setModal(!modal)
                 } else {
                     setError({
-                        code: "Error",
+                        code: `Error ${response.status}`,
                         message: "An error occurred while fetching the videos. Please try again later."
                     })
                     setModal(!modal)
@@ -49,7 +50,6 @@ export default function VideosIndex() {
             .then((response) => {return response.json()})
             .then((response) => {
                 setVideos(response.items)
-                setError(null);
             })
     }, [search]);
 
