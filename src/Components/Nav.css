@@ -1,8 +1,8 @@
 header {
     align-items: center;
-    background: var(--primary);
     display: flex;
     padding: 25px 15% 35px;
+    background-color:rgb(229, 49, 61);
   }
   
   header article,

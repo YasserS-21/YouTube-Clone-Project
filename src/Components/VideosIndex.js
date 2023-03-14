@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { getVideos } from "../api/fetch";
 import YouTube from "react-youtube";
 import VideoListing from "./VideoListing";
+
 import Modal from "./Modal";
 import { useNavigate } from "react-router-dom";
 
 const key = process.env.REACT_APP_API_KEY;
+
 
 
 export default function VideosIndex() {
@@ -14,6 +16,7 @@ export default function VideosIndex() {
     const [errorMessage, setError] = useState(null)
     const [modal, setModal] = useState(false);
     // const navigate = useNavigate();
+
 
     function searchVideos(e) {
         e.preventDefault()
