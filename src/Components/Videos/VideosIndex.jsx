@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import VideoListing from "./VideoListing";
 import Modal from "../Modal/Modal";
 import Filters from "./Filters";
-
+import "./VideosIndex.css"
 const key = process.env.REACT_APP_API_KEY;
 
 
@@ -51,7 +51,7 @@ export default function VideosIndex() {
             return response;
         };
 
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=${key}&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video${maxResults && `&maxResults=${maxResults}`}&q=${search}&key=${key}&order=${searchBy}&relevanceLanguage=en&safeSearch=${safeSearch}`)
 
             .then(handleErrors)
             .then((response) => {return response.json()})
