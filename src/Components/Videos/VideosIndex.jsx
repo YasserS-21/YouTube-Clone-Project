@@ -21,6 +21,7 @@ export default function VideosIndex() {
     function searchVideos(e) {
         e.preventDefault()
         setSearch(e.target[0].value)
+        e.target[0].value=""
         console.log(videos)
         console.log(maxResults,searchBy,safeSearch)
     }
