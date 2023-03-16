@@ -22,8 +22,6 @@ export default function VideosIndex() {
         e.preventDefault()
         setSearch(e.target[0].value)
         e.target[0].value=""
-        console.log(videos)
-        console.log(maxResults,searchBy,safeSearch)
     }
 
     function toggleFilters(e) {
@@ -35,7 +33,6 @@ export default function VideosIndex() {
         const handleErrors = (response) => {
             if (!response.ok) {
                 if (response.status === 400) {
-                    console.log(response)
                     setError({
                         code: `Error ${response.status}`,
                         message: "The server was unable to process the request due to invalid information sent by the client. Please modify your request and try again"

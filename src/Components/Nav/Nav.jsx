@@ -6,9 +6,9 @@ import "./Nav.css";
 export default function Nav() {
   const [headerColor, setHeaderColor] = useState({backgroundColor:null}) 
   const path= useLocation()
-  console.log(path)
+
 useEffect(()=> {
-  console.log(path)
+
    if(path.pathname === "/about"){
     setHeaderColor({backgroundColor: "white"})
   } else {
