@@ -19,7 +19,11 @@ export default function About() {
                         <div className="container">
                             <h2>Yasser Saadi</h2>
                             <p className="title">Pursuit Fellow</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>
+                                "Passionate Fullstack Developer excited
+                                to create meaningful progress in the
+                                field of tech."
+                            </p>
                             <p>yassersaadi@pursuit.org</p>
                             <a href="https://www.linkedin.com/in/yasser-saadi/" target="_blank" rel="noopener noreferrer">
                                 <p><button className="button">LinkedIn</button></p>
@@ -34,7 +38,10 @@ export default function About() {
                         <div className="container">
                             <h2>Wilton Camilo</h2>
                             <p className="title">Pursuit Fellow</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>
+                                "Here to learn from others so that others
+                                may learn from me."
+                            </p>
                             <p>wiltoncamilo@pursuit.org</p>
                             <a href="https://www.linkedin.com/in/wilton-l-camilo-339b78130/" target="_blank" rel="noopener noreferrer">
                                 <p><button className="button">LinkedIn</button></p>
@@ -49,7 +56,11 @@ export default function About() {
                         <div className="container">
                             <h2>Ryan Lundy</h2>
                             <p className="title">Pursuit Fellow</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>
+                                "Aspiring software engineer eager to
+                                contribute towards innovation in the
+                                music and fitness industries."
+                            </p>
                             <p>ryanlundy@pursuit.org</p>
                             <a href="https://www.linkedin.com/in/1ryanlundy/" target="_blank" rel="noopener noreferrer">
                                 <p><button className="button">LinkedIn</button></p>
